@@ -146,5 +146,18 @@ export function Tabs({ tabs = [], active, onChange, className = '' }) {
   )
 }
 
-const UI = { toast, Button, Card, Spinner, Badge, Alert, Input, Textarea, Modal, Stat, EmptyState, PageHeader, Table, Tabs }
+export function Select({ label, options = [], className = '', ...props }) {
+  return (
+    <div className={`select-wrapper ${className}`}>
+      {label && <label className="input-label">{label}</label>}
+      <select className="input select-input" {...props}>
+        {options.map((opt) => (
+          <option key={opt.value} value={opt.value}>{opt.label}</option>
+        ))}
+      </select>
+    </div>
+  )
+}
+
+const UI = { toast, Button, Card, Spinner, Badge, Alert, Input, Textarea, Modal, Stat, EmptyState, PageHeader, Table, Tabs, Select }
 export default UI
