@@ -58,7 +58,8 @@ export default function SubmitRecipe() {
     setIngredients(ingredients.filter((_, i) => i !== index));
   };
 
-  // Helper functions for dynamic instructions const handleInstructionChange = (index, value) => {
+  // Helper functions for dynamic instructions
+  const handleInstructionChange = (index, value) => {
     const updated = [...instructions];
     updated[index] = value;
     setInstructions(updated);
