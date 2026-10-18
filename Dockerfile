@@ -3,7 +3,7 @@ FROM node:20-alpine AS client-build
 WORKDIR /app
 COPY package.json package-lock.json* ./
 COPY client/package.json client/package-lock.json* ./client/
-RUN cd client && npm install
+RUN cd client && npm install --include=dev
 COPY client ./client
 RUN cd client && npm run build
 
