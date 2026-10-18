@@ -15,4 +15,4 @@ RUN npm install --omit=dev
 COPY server ./server
 COPY --from=client-build /app/client/dist ./client/dist
 EXPOSE 5000
-CMD ["node", "server/index.js"]
+CMD ["npm", "start"]
