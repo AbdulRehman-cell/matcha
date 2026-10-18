@@ -1,0 +1,30 @@
+# Render Blueprint configuration
+# Reference: https://render.com/docs/yaml-spec
+services:
+  - type: web
+    name: matcha-app
+    env: docker
+    plan: free
+    region: oregon
+    dockerfilePath: Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGO_URI
+        fromDatabase:
+          name: matcha-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+
+databases:
+  - name: matcha-db
+    databaseName: matcha
+    user: matcha_user
+    plan: free
+    region: oregon

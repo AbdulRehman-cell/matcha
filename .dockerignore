@@ -1,5 +1,12 @@
 node_modules
-client/node_modules
-client/dist
+npm-debug.log
 .git
+.gitignore
 .env
+.env.*
+README.md
+DEPLOY.md
+client/node_modules
+client/build
+client/dist
+.github
